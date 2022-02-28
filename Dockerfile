@@ -10,4 +10,5 @@ FROM nginx
 COPY variableReplace.sh /docker-entrypoint.d/
 COPY --from=BUILDER /app/dist /usr/share/nginx/html
 COPY .env /usr/share/nginx/html
+RUN chgrp -R 0 / && chmod -R g=u /
 
